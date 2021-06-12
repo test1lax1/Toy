@@ -24,3 +24,8 @@ RUN chmod 777 /env/bin/activate
 
 CMD /env/bin/activate
 CMD python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000
+
+WORKDIR /env
+volume /env
+EXPOSE 8080
+COPY . /env
